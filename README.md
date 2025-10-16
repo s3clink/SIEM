@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIEM Platform
 
 This project is a Security Information and Event Management (SIEM) platform built with a Django backend and a React frontend.
@@ -70,3 +71,6 @@ SIEM/
 
 ## License
 This project is licensed under the MIT License.
+=======
+# SIEM
+>>>>>>> 7b4c4f4b2751d62a3d649ffb7c2e78e83c15bcd7
