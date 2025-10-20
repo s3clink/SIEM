@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Tabs } from 'antd';
+import { Layout, Tabs, Button } from 'antd';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import AlertList from './components/AlertList';
@@ -10,11 +10,21 @@ const { Header, Content } = Layout;
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const handleLogout = () => {
+    setLoggedIn(false);
+    console.log('User logged out'); // 调试日志
+  };
+
   if (!loggedIn) return <LoginForm onLogin={() => setLoggedIn(true)} />;
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Header style={{ color: '#fff', fontSize: 18 }}>SIEM 多租户告警与工单平台</Header>
+      <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#fff', fontSize: 18 }}>
+        <span>SIEM 多租户告警与工单平台</span>
+        <Button type="primary" onClick={handleLogout} style={{ background: '#ff4d4f', border: 'none' }}>
+          退出
+        </Button>
+      </Header>
       <Content style={{ padding: 24 }}>
         <Tabs items={[
           { key: 'dashboard', label: '仪表盘', children: <Dashboard /> },
